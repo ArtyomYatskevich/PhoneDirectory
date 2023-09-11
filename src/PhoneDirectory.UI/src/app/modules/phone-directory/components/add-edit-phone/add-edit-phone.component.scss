@@ -1,0 +1,13 @@
+.content-wrapper {
+    width: 400px;
+
+    .actions-section {
+        display: flex;
+        justify-content: flex-end;
+    }
+      
+    .content-section {
+        display: flex;
+        flex-direction: column;
+    }
+}

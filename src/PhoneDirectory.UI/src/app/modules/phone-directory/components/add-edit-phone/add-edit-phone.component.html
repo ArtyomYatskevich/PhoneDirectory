@@ -1,0 +1,29 @@
+<div class="content-wrapper">
+    <form novalidate (ngSubmit)="submit()" #form="ngForm">
+        <h1 mat-dialog-title>
+            <ng-container *ngIf="isUpdate; else addTitle">Update phone</ng-container>
+            <ng-template #addTitle>Add phone</ng-template>
+        </h1>
+        <div mat-dialog-content class="content-section">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput [value]="data?.name ?? ''"  [formControl]="name" #usernameInput>
+                <mat-error *ngIf="name.invalid && form.submitted">
+                    Name is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input matInput [value]="data?.number ?? ''" [formControl]="phone" required #phoneInput>
+                <mat-error *ngIf="phone.invalid && form.submitted">
+                    Phone is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="actions-section">
+            <button mat-button type="button" (click)="close()">Close</button>
+            <button mat-button type="submit" cdkFocusInitial>Save</button>
+        </div>
+    </form>
+</div>
+  

@@ -1,0 +1,8 @@
+{
+    "env": {
+        "name": "dev"
+    },
+    "apiUrls": {
+        "phoneDirectory": "https://localhost:7202/api/"
+    }
+}

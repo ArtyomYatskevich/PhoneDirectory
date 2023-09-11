@@ -1,0 +1,30 @@
+<mat-card class="login-container">
+    <form class="form" novalidate (ngSubmit)="login(emailInput.value, passwordInput.value)" #form="ngForm">
+        <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required #emailInput>
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+                Email is required
+            </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required #passwordInput>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.invalid && form.dirty">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+
+        <div class="buttons">
+            <button mat-raised-button color="primary" type="submit">Sign in</button>
+        </div>
+    </form>
+</mat-card>
+  

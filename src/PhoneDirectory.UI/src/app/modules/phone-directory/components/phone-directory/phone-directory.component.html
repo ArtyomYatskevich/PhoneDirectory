@@ -1,0 +1,23 @@
+<div class="phone-directory-container">
+    <div class="buttons-container">
+        <button mat-raised-button color="primary" type="button" (click)="add()">Add</button>
+    </div>
+    <mat-card>
+        <mat-list>
+            <ng-container *ngFor="let phone of phones">
+                <mat-list-item>
+                    <span>{{phone.name}} - {{phone.number}}</span>
+                    <button mat-icon-button (click)="update(phone)" matListItemMeta>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="remove(phone)" matListItemMeta>
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-list-item>
+            </ng-container>
+            <mat-list-item *ngIf="phones.length === 0">
+                No contacts
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+</div>

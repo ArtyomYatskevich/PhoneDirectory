@@ -1,0 +1,14 @@
+<div class="content-wrapper">
+    <h1 mat-dialog-title>
+        {{data.title}}
+    </h1>
+    
+    <div mat-dialog-content>
+        <p>{{data.message}}</p>
+    </div>
+    
+    <div mat-dialog-actions class="actions-section">
+        <button mat-button (click)="cancel()">No</button>
+        <button mat-raised-button color="primary" (click)="submit()">Yes</button>
+    </div>
+</div>
